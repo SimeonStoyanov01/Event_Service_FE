@@ -13,9 +13,13 @@ import {
   Stack,
   Box,
   FormLabel,
-  useToast
+  useToast,
+  InputGroup,
+  Switch,
+  Heading,
 } from '@chakra-ui/react';
-import { login } from '../services/authService';
+import { login } from '../../services/authService';
+import './LoginPage.css'; // Import the CSS file
 
 const LoginDrawer = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -24,10 +28,11 @@ const LoginDrawer = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = async () => {
     try {
-      const response = await login(email, password); // Call the login function from authService
+      const response = await login(email, password);
       toast({
         title: 'Login successful.',
         description: 'You have successfully logged in.',
@@ -36,6 +41,7 @@ const LoginDrawer = () => {
         isClosable: true,
       });
       onClose();
+      window.location.reload();
     } catch (error) {
       toast({
         title: 'Login failed.',
@@ -46,7 +52,6 @@ const LoginDrawer = () => {
       });
     }
   };
-
 
   return (
     <>
@@ -63,10 +68,11 @@ const LoginDrawer = () => {
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader borderBottomWidth="1px">
-            Login to your account
+            <Heading>Login to your account</Heading>
           </DrawerHeader>
 
           <DrawerBody>
+            <Heading size="md" mb={4}>Enter your credentials</Heading>
             <Stack spacing="24px">
               <Box>
                 <FormLabel htmlFor="email">Email</FormLabel>
@@ -81,12 +87,20 @@ const LoginDrawer = () => {
 
               <Box>
                 <FormLabel htmlFor="password">Password</FormLabel>
-                <Input
-                  id="password"
-                  type="password"
-                  placeholder="Please enter your password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                <InputGroup>
+                  <Input
+                    id="password"
+                    type={showPassword ? 'text' : 'password'}
+                    placeholder="Please enter your password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </InputGroup>
+                <FormLabel htmlFor="show-password" mt={2}>Show Password</FormLabel>
+                <Switch
+                  id="show-password"
+                  isChecked={showPassword}
+                  onChange={() => setShowPassword(!showPassword)}
                 />
               </Box>
             </Stack>
