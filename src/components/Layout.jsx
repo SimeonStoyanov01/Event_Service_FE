@@ -1,8 +1,8 @@
-// components/Layouts/Layout.js
 import React from 'react';
 import { Box, Grid, GridItem, useColorMode } from '@chakra-ui/react';
 import NavBar from './NavBar';
 import UserProfile from './User/UserProfile';
+
 
 const Layout = ({ children }) => {
   const { colorMode } = useColorMode();
@@ -19,13 +19,13 @@ const Layout = ({ children }) => {
       >
         <GridItem area={'header'} bg="green.300">
           <NavBar />
+
         </GridItem>
         <GridItem area={'nav'} bg="pink.700">
           {/* Add Nav items here */}
           <Box padding={4}>Default Nav Items</Box>
         </GridItem>
         <GridItem area={'main'} p={4} bg="orange.300">
-          <UserProfile /> 
           {children}
         </GridItem>
       </Grid>

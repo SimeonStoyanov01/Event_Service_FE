@@ -1,0 +1,18 @@
+.chakra-heading {
+    color: black !important;
+  }
+  
+  .chakra-form__label {
+    color: black !important;
+  }
+  
+  .chakra-input {
+    color: black !important;
+  }
+  
+  .chakra-input::placeholder {
+    color: gray !important;
+  }
+  .custom-menu-item {
+    color: black !important;
+  }

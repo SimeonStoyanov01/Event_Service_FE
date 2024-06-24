@@ -3,31 +3,21 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { ChakraProvider } from '@chakra-ui/react';
 import { AuthProvider } from './contexts/AuthContext';
 import Layout from './components/Layout';
-import AdminLayout from './components/Layouts/AdminLayout';
-import UserLayout from './components/Layouts/UserLayout';
-import BusinessAdminLayout from './components/Layouts/BusinessAdminLayout';
-import BusinessUserLayout from './components/Layouts/BusinessUserLayout';
-import ProtectedRoute from './routes/ProtectedRoute';
-import { ROLES } from './utils/constants';
 import theme from './theme';
+import {businessUserRoutes} from './routes/businessUserRoutes'
+import { businessAdminRoutes } from './routes/businessAdminRoutes';
+import { userRoutes } from './routes/userRoutes';
+import { adminRoutes } from './routes/adminRoutes';
 const App = () => {
   return (
     <ChakraProvider theme={theme}>
       <AuthProvider>
-          <Routes>
+      <Routes>
             <Route path="/" element={<Layout />} />
-            <Route element={<ProtectedRoute roles={[ROLES.ADMIN]} />}>
-              <Route path="/admin/*" element={<AdminLayout />} />
-            </Route>
-            <Route element={<ProtectedRoute roles={[ROLES.USER]} />}>
-              <Route path="/user/*" element={<UserLayout />} />
-            </Route>
-            <Route element={<ProtectedRoute roles={[ROLES.BUSINESS]} />}>
-              <Route path="/business/*" element={<BusinessAdminLayout />} />
-            </Route>
-            <Route element={<ProtectedRoute roles={[ROLES.BUSINESS_ADMIN]} />}>
-              <Route path="/business_admin/*" element={<BusinessUserLayout />} />
-            </Route>
+            {adminRoutes()}
+            {userRoutes()}
+            {businessUserRoutes()}
+            {businessAdminRoutes()}
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
       </AuthProvider>
@@ -37,3 +27,5 @@ const App = () => {
 
 
 export default App;
+
+

@@ -1,0 +1,18 @@
+.chakra-heading {
+    color: black !important;
+  }
+  
+  .chakra-form__label {
+    color: black !important;
+  }
+  
+  .chakra-input {
+    color: black !important;
+  }
+  
+  .chakra-input::placeholder {
+    color: gray !important;
+  }
+  .chakra-modal__close-btn .chakra-icon path {
+    fill: rgb(101, 15, 193) !important;
+  }

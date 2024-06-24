@@ -9,7 +9,6 @@ import {
   DrawerCloseButton,
   Button,
   Input,
-  useDisclosure,
   Stack,
   Box,
   FormLabel,
@@ -21,8 +20,7 @@ import {
 import { login } from '../../services/authService';
 import './LoginPage.css'; // Import the CSS file
 
-const LoginDrawer = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+const LoginDrawer = ({ isOpen, onClose }) => {
   const firstField = React.useRef();
   const toast = useToast();
 
@@ -41,7 +39,7 @@ const LoginDrawer = () => {
         isClosable: true,
       });
       onClose();
-      window.location.reload();
+
     } catch (error) {
       toast({
         title: 'Login failed.',
@@ -50,71 +48,66 @@ const LoginDrawer = () => {
         duration: 9000,
         isClosable: true,
       });
-    }
+    }      window.location.reload();
   };
 
   return (
-    <>
-      <Button colorScheme="teal" onClick={onOpen}>
-        Login
-      </Button>
-      <Drawer
-        isOpen={isOpen}
-        placement="right"
-        initialFocusRef={firstField}
-        onClose={onClose}
-      >
-        <DrawerOverlay />
-        <DrawerContent>
-          <DrawerCloseButton />
-          <DrawerHeader borderBottomWidth="1px">
-            <Heading>Login to your account</Heading>
-          </DrawerHeader>
+    <Drawer
+      isOpen={isOpen}
+      placement="right"
+      initialFocusRef={firstField}
+      onClose={onClose}
+    >
+      <DrawerOverlay />
+      <DrawerContent>
+        <DrawerCloseButton />
+        <DrawerHeader borderBottomWidth="1px">
+          <Heading>Login to your account</Heading>
+        </DrawerHeader>
 
-          <DrawerBody>
-            <Heading size="md" mb={4}>Enter your credentials</Heading>
-            <Stack spacing="24px">
-              <Box>
-                <FormLabel htmlFor="email">Email</FormLabel>
+        <DrawerBody>
+          <Heading size="md" mb={4}>Enter your credentials</Heading>
+          <Stack spacing="24px">
+            <Box>
+              <FormLabel htmlFor="email">Email</FormLabel>
+              <Input
+                ref={firstField}
+                id="email"
+                placeholder="Please enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </Box>
+
+            <Box>
+              <FormLabel htmlFor="password">Password</FormLabel>
+              <InputGroup>
                 <Input
-                  ref={firstField}
-                  id="email"
-                  placeholder="Please enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  id="password"
+                  type={showPassword ? 'text' : 'password'}
+                  placeholder="Please enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
-              </Box>
+              </InputGroup>
+              <FormLabel htmlFor="show-password" mt={2}>Show Password</FormLabel>
+              <Switch
+                id="show-password"
+                isChecked={showPassword}
+                onChange={() => setShowPassword(!showPassword)}
+              />
+            </Box>
+          </Stack>
+        </DrawerBody>
 
-              <Box>
-                <FormLabel htmlFor="password">Password</FormLabel>
-                <InputGroup>
-                  <Input
-                    id="password"
-                    type={showPassword ? 'text' : 'password'}
-                    placeholder="Please enter your password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                </InputGroup>
-                <FormLabel htmlFor="show-password" mt={2}>Show Password</FormLabel>
-                <Switch
-                  id="show-password"
-                  isChecked={showPassword}
-                  onChange={() => setShowPassword(!showPassword)}
-                />
-              </Box>
-            </Stack>
-          </DrawerBody>
-
-          <DrawerFooter borderTopWidth="1px">
-            <Button variant="outline" mr={3} onClick={onClose}>
-              Cancel
-            </Button>
-            <Button colorScheme="blue" onClick={handleLogin}>Login</Button>
-          </DrawerFooter>
-        </DrawerContent>
-      </Drawer>
-    </>
+        <DrawerFooter borderTopWidth="1px">
+          <Button variant="outline" mr={3} onClick={onClose}>
+            Cancel
+          </Button>
+          <Button colorScheme="blue" onClick={handleLogin}>Login</Button>
+        </DrawerFooter>
+      </DrawerContent>
+    </Drawer>
   );
 };
 

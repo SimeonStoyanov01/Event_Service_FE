@@ -1,0 +1,46 @@
+.chakra-heading {
+    color: black !important; /* Set the color to black */
+  }
+  
+  .chakra-form__label {
+    color: black !important; /* Set the color to black */
+  }
+  
+  .chakra-input {
+    color: black !important; /* Ensure the input text is black */
+  }
+  
+  .chakra-input::placeholder {
+    color: gray !important; /* Ensure placeholder text is gray */
+  }
+  
+  .chakra-modal__close-btn .chakra-icon path {
+    fill: rgb(101, 15, 193) !important;
+  }
+  
+  /* Custom styles for the stepper */
+  .step-title {
+    color: black !important; /* Set the step title color to black */
+  }
+  
+  .step-number {
+    color: black !important; /* Set the step number color to black */
+  }
+  
+  .step-icon {
+    background-color: rgb(101, 15, 193) !important; /* Set the check mark background to purple */
+    color: white !important; /* Ensure the check mark is visible on purple background */
+  }
+  .chakra-step-indicator{
+    background-color: rgb(101, 15, 193) !important; 
+    color: rgb(101, 15, 193) !important;
+  }
+  
+  /* Positioning next and back buttons */
+  .drawer-footer-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  

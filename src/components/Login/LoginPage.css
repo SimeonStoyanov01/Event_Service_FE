@@ -15,4 +15,6 @@
   .chakra-input::placeholder {
     color: gray !important; /* Ensure placeholder text is gray */
   }
-  
+  .chakra-modal__close-btn .chakra-icon path {
+    fill: rgb(101, 15, 193) !important;
+  }

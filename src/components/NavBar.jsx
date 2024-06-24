@@ -1,15 +1,17 @@
-// components/NavBar.jsx
 import React from 'react';
 import { Box, Flex, HStack, Link, IconButton, useDisclosure, Spacer } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-import LoginDrawer from './Login/LoginPage';
-import Logout from './Logout/LogoutButton';
 import { useAuth } from '../contexts/AuthContext';
+import RegisterUserDrawer from './Register/RegisterUser/RegisterUserDrawer';
+import MyAccountMenu from './User/MyAccountMenu';
+import LoginButton from './Login/LoginButton';
+import RegisterOrganizationDrawer from './Register/RegisterOrganization/RegisterOrganizationDrawer';
 
 const NavBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const handleToggle = () => (isOpen ? onClose() : onOpen());
   const { user } = useAuth();
+
+  const handleToggle = () => (isOpen ? onClose() : onOpen());
 
   return (
     <Box bg="gray.800" px={4}>
@@ -30,7 +32,9 @@ const NavBar = () => {
         </HStack>
         <Spacer />
         <HStack spacing={4}>
-          {user ? <Logout /> : <LoginDrawer />}
+          {user ? <MyAccountMenu /> : <LoginButton isOpen={isOpen} onOpen={onOpen} onClose={onClose} />}
+          {!user && <RegisterUserDrawer />}
+          {!user && <RegisterOrganizationDrawer />}
         </HStack>
       </Flex>
       {isOpen ? (
