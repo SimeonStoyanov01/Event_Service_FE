@@ -1,3 +1,4 @@
+// components/Login/LoginDrawer.jsx
 import React, { useState } from 'react';
 import {
   Drawer,
@@ -17,12 +18,13 @@ import {
   Switch,
   Heading,
 } from '@chakra-ui/react';
-import { login } from '../../services/authService';
+import { useAuth } from '../../contexts/AuthContext';
 import './LoginPage.css'; // Import the CSS file
 
 const LoginDrawer = ({ isOpen, onClose }) => {
   const firstField = React.useRef();
   const toast = useToast();
+  const { login } = useAuth();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -30,7 +32,7 @@ const LoginDrawer = ({ isOpen, onClose }) => {
 
   const handleLogin = async () => {
     try {
-      const response = await login(email, password);
+      await login(email, password);
       toast({
         title: 'Login successful.',
         description: 'You have successfully logged in.',
@@ -39,7 +41,6 @@ const LoginDrawer = ({ isOpen, onClose }) => {
         isClosable: true,
       });
       onClose();
-
     } catch (error) {
       toast({
         title: 'Login failed.',
@@ -48,16 +49,11 @@ const LoginDrawer = ({ isOpen, onClose }) => {
         duration: 9000,
         isClosable: true,
       });
-    }      window.location.reload();
+    }
   };
 
   return (
-    <Drawer
-      isOpen={isOpen}
-      placement="right"
-      initialFocusRef={firstField}
-      onClose={onClose}
-    >
+    <Drawer isOpen={isOpen} placement="right" initialFocusRef={firstField} onClose={onClose}>
       <DrawerOverlay />
       <DrawerContent>
         <DrawerCloseButton />

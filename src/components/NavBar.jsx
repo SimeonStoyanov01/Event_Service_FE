@@ -7,7 +7,7 @@ import MyAccountMenu from './User/MyAccountMenu';
 import LoginButton from './Login/LoginButton';
 import RegisterOrganizationDrawer from './Register/RegisterOrganization/RegisterOrganizationDrawer';
 
-const NavBar = () => {
+const NavBar = ({ children }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { user } = useAuth();
 
@@ -26,8 +26,7 @@ const NavBar = () => {
           />
           <Box color="white">Event Service</Box>
           <HStack as="nav" spacing={4} display={{ base: 'none', md: 'flex' }}>
-            <Link href="/" color="white">Home</Link>
-            <Link href="/events" color="white">All Events</Link>
+            {children}
           </HStack>
         </HStack>
         <Spacer />
@@ -40,8 +39,7 @@ const NavBar = () => {
       {isOpen ? (
         <Box pb={4} display={{ md: 'none' }}>
           <Flex as="nav" direction="column" spacing={4}>
-            <Link href="/" color="white">Home</Link>
-            <Link href="/events" color="white">All Events</Link>
+            {children}
           </Flex>
         </Box>
       ) : null}

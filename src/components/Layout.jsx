@@ -1,8 +1,7 @@
 import React from 'react';
 import { Box, Grid, GridItem, useColorMode } from '@chakra-ui/react';
 import NavBar from './NavBar';
-import UserProfile from './User/UserProfile';
-
+import { Link } from '@chakra-ui/react';
 
 const Layout = ({ children }) => {
   const { colorMode } = useColorMode();
@@ -15,10 +14,15 @@ const Layout = ({ children }) => {
                         "nav main"`}
         gridTemplateRows={'auto 1fr'}
         gridTemplateColumns={'250px 1fr'}
-        height="100vh"
+        minHeight="100vh"  // Ensure the grid takes full height of the viewport
+        width="100vw"       // Ensure the grid takes full width of the viewport
+        gap={1}             // Adjust gap between grid items as needed
       >
         <GridItem area={'header'} bg="green.300">
-          <NavBar />
+          <NavBar>       
+           <Link href="/">Home</Link>
+           <Link href="/events">All Events</Link>     
+          </NavBar>
 
         </GridItem>
         <GridItem area={'nav'} bg="pink.700">

@@ -4,16 +4,19 @@ import { ChakraProvider } from '@chakra-ui/react';
 import { AuthProvider } from './contexts/AuthContext';
 import Layout from './components/Layout';
 import theme from './theme';
-import {businessUserRoutes} from './routes/businessUserRoutes'
+import { businessUserRoutes } from './routes/businessUserRoutes';
 import { businessAdminRoutes } from './routes/businessAdminRoutes';
 import { userRoutes } from './routes/userRoutes';
 import { adminRoutes } from './routes/adminRoutes';
+import PageableGrid from './components/BusinessEvents/PageableGrid';
+
 const App = () => {
   return (
     <ChakraProvider theme={theme}>
       <AuthProvider>
-      <Routes>
+          <Routes>
             <Route path="/" element={<Layout />} />
+            <Route path="/events" element={<Layout><PageableGrid /></Layout>} />
             {adminRoutes()}
             {userRoutes()}
             {businessUserRoutes()}
@@ -25,7 +28,4 @@ const App = () => {
   );
 };
 
-
 export default App;
-
-

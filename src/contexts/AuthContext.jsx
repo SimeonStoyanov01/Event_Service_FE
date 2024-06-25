@@ -21,11 +21,9 @@ export const AuthProvider = ({ children }) => {
         navigate('/admin');
       } else if (userData.role === 'PERSONAL') {
         navigate('/user');
-      }
-      else if (userData.role === 'BUSINESS') {
+      } else if (userData.role === 'BUSINESS') {
         navigate('/business');
-      }
-      else if (userData.role === 'BUSINESS_ADMIN') {
+      } else if (userData.role === 'BUSINESS_ADMIN') {
         navigate('/business_admin');
       }
     } catch (error) {

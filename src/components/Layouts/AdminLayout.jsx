@@ -1,8 +1,10 @@
+// AdminLayout.jsx
 import React from 'react';
-import { Box, Grid, GridItem, useColorMode } from '@chakra-ui/react';
+import { Box, Grid, GridItem, useColorMode, Link } from '@chakra-ui/react';
 import NavBar from '../NavBar';
+import { Outlet } from 'react-router-dom';
 
-const AdminLayout = ({ children }) => {
+const AdminLayout = () => {
   const { colorMode } = useColorMode();
 
   return (
@@ -16,14 +18,17 @@ const AdminLayout = ({ children }) => {
         height="100vh"
       >
         <GridItem area={'header'} bg="blue.300">
-          <NavBar />
+          <NavBar>
+            <Link href="/admin">Home</Link>
+            <Link href="/admin/aaa">All Events</Link>
+          </NavBar>
         </GridItem>
         <GridItem area={'nav'} bg="purple.700">
           {/* Add Nav items here */}
           <Box>Admin Nav Items</Box>
         </GridItem>
         <GridItem area={'main'} p={4} bg="yellow.300">
-          {children}
+          <Outlet />
         </GridItem>
       </Grid>
     </Box>
