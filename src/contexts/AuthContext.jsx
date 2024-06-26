@@ -22,9 +22,9 @@ export const AuthProvider = ({ children }) => {
       } else if (userData.role === 'PERSONAL') {
         navigate('/user');
       } else if (userData.role === 'BUSINESS') {
-        navigate('/business');
+        navigate('/businessuser');
       } else if (userData.role === 'BUSINESS_ADMIN') {
-        navigate('/business_admin');
+        navigate('/businessadmin');
       }
     } catch (error) {
       console.error('Failed to fetch user', error);

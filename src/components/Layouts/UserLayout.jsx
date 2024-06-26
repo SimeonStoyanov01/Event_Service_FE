@@ -1,7 +1,8 @@
 import React from 'react';
 import { Box, Grid, GridItem, useColorMode } from '@chakra-ui/react';
-import NavBar from '../NavBar';
+import NavBar from '../NavBars/AdminNavBar';
 import { Outlet } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const UserLayout = ({ children }) => {
   const { colorMode } = useColorMode();
@@ -16,13 +17,16 @@ const UserLayout = ({ children }) => {
         height="100vh"
       >
         <GridItem area={'header'} bg="green.300">
-          <NavBar role="User" />
+          <NavBar>
+            <NavLink to="/user">Home</NavLink>
+            <NavLink to="/user/events">AllEvents</NavLink>
+          </NavBar>
         </GridItem>
         <GridItem area={'nav'} bg="pink.700">
           <Box>ssdffd</Box>
         </GridItem>
         <GridItem area={'main'} p={4} bg="orange.300">
-          {children}
+          <Outlet />
         </GridItem>
       </Grid>
     </Box>

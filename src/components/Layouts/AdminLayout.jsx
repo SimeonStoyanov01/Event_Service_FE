@@ -1,8 +1,9 @@
 // AdminLayout.jsx
 import React from 'react';
-import { Box, Grid, GridItem, useColorMode, Link } from '@chakra-ui/react';
-import NavBar from '../NavBar';
+import { Box, Grid, GridItem, useColorMode} from '@chakra-ui/react';
+import NavBar from '../NavBars/AdminNavBar';
 import { Outlet } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const AdminLayout = () => {
   const { colorMode } = useColorMode();
@@ -15,19 +16,23 @@ const AdminLayout = () => {
                         "nav main"`}
         gridTemplateRows={'auto 1fr'}
         gridTemplateColumns={'250px 1fr'}
-        height="100vh"
+        minHeight="100vh"  // Ensure the grid takes full height of the viewport
+        width="100vw"       // Ensure the grid takes full width of the viewport
+        gap={1}             // Adjust gap between grid items as needed
       >
         <GridItem area={'header'} bg="blue.300">
           <NavBar>
-            <Link href="/admin">Home</Link>
-            <Link href="/admin/aaa">All Events</Link>
+            {/* <Link href="/">Home</Link>
+            <Link href="/admin/">All Events</Link> */}
+            <NavLink to="/admin">Home</NavLink>
+            <NavLink to="/admin/events">AllEvents</NavLink>
           </NavBar>
         </GridItem>
         <GridItem area={'nav'} bg="purple.700">
           {/* Add Nav items here */}
           <Box>Admin Nav Items</Box>
         </GridItem>
-        <GridItem area={'main'} p={4} bg="yellow.300">
+        <GridItem area={'main'} p={4} bg="white.300">
           <Outlet />
         </GridItem>
       </Grid>

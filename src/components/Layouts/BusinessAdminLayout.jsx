@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Grid, GridItem, useColorMode } from '@chakra-ui/react';
-import NavBar from '../NavBar';
+import NavBar from '../NavBars/AdminNavBar';
+import { NavLink, Outlet } from 'react-router-dom';
 
 const BusinessAdminLayout = ({ children }) => {
   const { colorMode } = useColorMode();
@@ -16,14 +17,17 @@ const BusinessAdminLayout = ({ children }) => {
         height="100vh"
       >
         <GridItem area={'header'} bg="blue.300">
-          <NavBar />
+          <NavBar>
+            <NavLink to="/businessadmin">Home</NavLink>
+            <NavLink to="/businessadmin/events">AllEvents</NavLink>
+          </NavBar>       
         </GridItem>
         <GridItem area={'nav'} bg="red.200">
           {/* Add Nav items here */}
           <Box>Business Admin Nav Items</Box>
         </GridItem>
         <GridItem area={'main'} p={4} bg="yellow.300">
-          {children}
+          <Outlet/>
         </GridItem>
       </Grid>
     </Box>

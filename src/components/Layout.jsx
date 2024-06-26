@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Grid, GridItem, useColorMode } from '@chakra-ui/react';
 import NavBar from './NavBar';
-import { Link } from '@chakra-ui/react';
+import { NavLink } from 'react-router-dom';
 
 const Layout = ({ children }) => {
   const { colorMode } = useColorMode();
@@ -20,8 +20,10 @@ const Layout = ({ children }) => {
       >
         <GridItem area={'header'} bg="green.300">
           <NavBar>       
-           <Link href="/">Home</Link>
-           <Link href="/events">All Events</Link>     
+           {/* <Link href="/">Home</Link>
+           <Link href="/events">All Events</Link>      */}
+           <NavLink to="/">Home</NavLink>
+           <NavLink to="/events">AllEvents</NavLink>
           </NavBar>
 
         </GridItem>
