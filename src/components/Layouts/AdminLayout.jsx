@@ -4,6 +4,7 @@ import { Box, Grid, GridItem, useColorMode} from '@chakra-ui/react';
 import NavBar from '../NavBars/AdminNavBar';
 import { Outlet } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
+import Sidebar from '../Sidebar/SideBar';
 
 const AdminLayout = () => {
   const { colorMode } = useColorMode();
@@ -28,9 +29,8 @@ const AdminLayout = () => {
             <NavLink to="/admin/events">AllEvents</NavLink>
           </NavBar>
         </GridItem>
-        <GridItem area={'nav'} bg="purple.700">
-          {/* Add Nav items here */}
-          <Box>Admin Nav Items</Box>
+        <GridItem area={'nav'} bg="gray.300">
+          <Sidebar/>
         </GridItem>
         <GridItem area={'main'} p={4} bg="white.300">
           <Outlet />

@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Grid, GridItem, useColorMode } from '@chakra-ui/react';
 import NavBar from './NavBar';
 import { NavLink } from 'react-router-dom';
+import Sidebar from './Sidebar/SideBar';
 
 const Layout = ({ children }) => {
   const { colorMode } = useColorMode();
@@ -27,11 +28,10 @@ const Layout = ({ children }) => {
           </NavBar>
 
         </GridItem>
-        <GridItem area={'nav'} bg="pink.700">
-          {/* Add Nav items here */}
-          <Box padding={4}>Default Nav Items</Box>
+        <GridItem area={'nav'} bg="gray.300">
+          <Sidebar/>
         </GridItem>
-        <GridItem area={'main'} p={4} bg="orange.300">
+        <GridItem area={'main'} p={4} bg="white.300">
           {children}
         </GridItem>
       </Grid>

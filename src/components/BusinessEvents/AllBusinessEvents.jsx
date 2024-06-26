@@ -8,7 +8,7 @@ const AllBusinessEvents = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const eventsData = await getAllEvents(false); // Fetch events without reservations initially
+        const eventsData = await getAllEvents(false);
         
         // Fetch reservations for each event
         const eventsWithReservations = await Promise.all(

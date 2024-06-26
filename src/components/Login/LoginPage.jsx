@@ -33,13 +33,6 @@ const LoginDrawer = ({ isOpen, onClose }) => {
   const handleLogin = async () => {
     try {
       await login(email, password);
-      toast({
-        title: 'Login successful.',
-        description: 'You have successfully logged in.',
-        status: 'success',
-        duration: 9000,
-        isClosable: true,
-      });
       onClose();
     } catch (error) {
       toast({

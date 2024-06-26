@@ -3,6 +3,7 @@ import { Box, Grid, GridItem, useColorMode } from '@chakra-ui/react';
 import NavBar from '../NavBars/AdminNavBar';
 import { Outlet } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
+import Sidebar from '../Sidebar/SideBar';
 
 const UserLayout = ({ children }) => {
   const { colorMode } = useColorMode();
@@ -14,7 +15,9 @@ const UserLayout = ({ children }) => {
                         "nav main"`}
         gridTemplateRows={'auto 1fr'}
         gridTemplateColumns={'250px 1fr'}
-        height="100vh"
+        minHeight="100vh"  // Ensure the grid takes full height of the viewport
+        width="100vw"       // Ensure the grid takes full width of the viewport
+        gap={1}             // Adjust gap between grid items as needed
       >
         <GridItem area={'header'} bg="green.300">
           <NavBar>
@@ -22,10 +25,10 @@ const UserLayout = ({ children }) => {
             <NavLink to="/user/events">AllEvents</NavLink>
           </NavBar>
         </GridItem>
-        <GridItem area={'nav'} bg="pink.700">
-          <Box>ssdffd</Box>
+        <GridItem area={'nav'} bg="gray.300">
+          <Sidebar/>
         </GridItem>
-        <GridItem area={'main'} p={4} bg="orange.300">
+        <GridItem area={'main'} p={4} bg="white.300">
           <Outlet />
         </GridItem>
       </Grid>

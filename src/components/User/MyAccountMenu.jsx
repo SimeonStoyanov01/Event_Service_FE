@@ -19,13 +19,7 @@ const MyAccountMenu = () => {
 
   const handleLogout = async () => {
     await logout();
-    toast({
-      title: 'Logout successful.',
-      description: 'You have successfully logged out.',
-      status: 'success',
-      duration: 9000,
-      isClosable: true,
-    });
+  
   };
 
   const renderMenuItems = () => {
