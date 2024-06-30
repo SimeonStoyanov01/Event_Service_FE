@@ -8,54 +8,56 @@ const Sidebar = () => {
   const { user } = useAuth();
   const listItemBgColor = useColorModeValue('white', 'gray.800');
   const listItemTextColor = useColorModeValue('black', 'white');
+  const listItemHoverBgColor = useColorModeValue('gray.200', 'gray.700');
 
   const renderSidebarItems = () => {
+    console.log(user);
     switch (user?.role) {
       case 'PERSONAL':
         return (
           <>
             <ListItem>
-              <NavLink to="/user">
+              <NavLink to="/user/mypersonalevents">
                 <Box
                   display="flex"
                   alignItems="center"
                   p={3}
                   bg={listItemBgColor}
                   borderRadius="md"
-                  _hover={{ bg: useColorModeValue('gray.200', 'gray.700') }}
+                  _hover={{ bg: listItemHoverBgColor }}
                 >
                   <CalendarIcon color="black" />
-                  <Text ml={3} color={listItemTextColor}>Dashboard</Text>
+                  <Text ml={3} color={listItemTextColor}>My Events</Text>
                 </Box>
               </NavLink>
             </ListItem>
             <ListItem>
-              <NavLink to="/user/profile">
+              <NavLink to="/user/createpersonalevent">
                 <Box
                   display="flex"
                   alignItems="center"
                   p={3}
                   bg={listItemBgColor}
                   borderRadius="md"
-                  _hover={{ bg: useColorModeValue('gray.200', 'gray.700') }}
+                  _hover={{ bg: listItemHoverBgColor }}
                 >
                   <AtSignIcon color="black" />
-                  <Text ml={3} color={listItemTextColor}>Profile</Text>
+                  <Text ml={3} color={listItemTextColor}>Create Personal Event</Text>
                 </Box>
               </NavLink>
             </ListItem>
             <ListItem>
-              <NavLink to="/user/settings">
+              <NavLink to="/user/report">
                 <Box
                   display="flex"
                   alignItems="center"
                   p={3}
                   bg={listItemBgColor}
                   borderRadius="md"
-                  _hover={{ bg: useColorModeValue('gray.200', 'gray.700') }}
+                  _hover={{ bg: listItemHoverBgColor }}
                 >
                   <SettingsIcon color="black" />
-                  <Text ml={3} color={listItemTextColor}>Settings</Text>
+                  <Text ml={3} color={listItemTextColor}>Report an issue</Text>
                 </Box>
               </NavLink>
             </ListItem>
@@ -72,7 +74,7 @@ const Sidebar = () => {
                   p={3}
                   bg={listItemBgColor}
                   borderRadius="md"
-                  _hover={{ bg: useColorModeValue('gray.200', 'gray.700') }}
+                  _hover={{ bg: listItemHoverBgColor }}
                 >
                   <CalendarIcon color="black" />
                   <Text ml={3} color={listItemTextColor}>Dashboard</Text>
@@ -87,7 +89,7 @@ const Sidebar = () => {
                   p={3}
                   bg={listItemBgColor}
                   borderRadius="md"
-                  _hover={{ bg: useColorModeValue('gray.200', 'gray.700') }}
+                  _hover={{ bg: listItemHoverBgColor }}
                 >
                   <InfoIcon color="black" />
                   <Text ml={3} color={listItemTextColor}>Reports</Text>
@@ -102,7 +104,7 @@ const Sidebar = () => {
                   p={3}
                   bg={listItemBgColor}
                   borderRadius="md"
-                  _hover={{ bg: useColorModeValue('gray.200', 'gray.700') }}
+                  _hover={{ bg: listItemHoverBgColor }}
                 >
                   <AtSignIcon color="black" />
                   <Text ml={3} color={listItemTextColor}>Users</Text>
@@ -122,7 +124,7 @@ const Sidebar = () => {
                   p={3}
                   bg={listItemBgColor}
                   borderRadius="md"
-                  _hover={{ bg: useColorModeValue('gray.200', 'gray.700') }}
+                  _hover={{ bg: listItemHoverBgColor }}
                 >
                   <CalendarIcon color="black" />
                   <Text ml={3} color={listItemTextColor}>Create Event</Text>
@@ -137,7 +139,7 @@ const Sidebar = () => {
                   p={3}
                   bg={listItemBgColor}
                   borderRadius="md"
-                  _hover={{ bg: useColorModeValue('gray.200', 'gray.700') }}
+                  _hover={{ bg: listItemHoverBgColor }}
                 >
                   <InfoIcon color="black" />
                   <Text ml={3} color={listItemTextColor}>Earnings</Text>
@@ -152,7 +154,7 @@ const Sidebar = () => {
                   p={3}
                   bg={listItemBgColor}
                   borderRadius="md"
-                  _hover={{ bg: useColorModeValue('gray.200', 'gray.700') }}
+                  _hover={{ bg: listItemHoverBgColor }}
                 >
                   <EditIcon color="black" />
                   <Text ml={3} color={listItemTextColor}>Events</Text>
@@ -172,7 +174,7 @@ const Sidebar = () => {
                   p={3}
                   bg={listItemBgColor}
                   borderRadius="md"
-                  _hover={{ bg: useColorModeValue('gray.200', 'gray.700') }}
+                  _hover={{ bg: listItemHoverBgColor }}
                 >
                   <CalendarIcon color="black" />
                   <Text ml={3} color={listItemTextColor}>Create Event</Text>
@@ -187,7 +189,7 @@ const Sidebar = () => {
                   p={3}
                   bg={listItemBgColor}
                   borderRadius="md"
-                  _hover={{ bg: useColorModeValue('gray.200', 'gray.700') }}
+                  _hover={{ bg: listItemHoverBgColor }}
                 >
                   <InfoIcon color="black" />
                   <Text ml={3} color={listItemTextColor}>Earnings</Text>
@@ -202,7 +204,7 @@ const Sidebar = () => {
                   p={3}
                   bg={listItemBgColor}
                   borderRadius="md"
-                  _hover={{ bg: useColorModeValue('gray.200', 'gray.700') }}
+                  _hover={{ bg: listItemHoverBgColor }}
                 >
                   <EditIcon color="black" />
                   <Text ml={3} color={listItemTextColor}>Events</Text>
@@ -222,7 +224,7 @@ const Sidebar = () => {
                   p={3}
                   bg={listItemBgColor}
                   borderRadius="md"
-                  _hover={{ bg: useColorModeValue('gray.200', 'gray.700') }}
+                  _hover={{ bg: listItemHoverBgColor }}
                 >
                   <CalendarIcon color="black" />
                   <Text ml={3} color={listItemTextColor}>Home</Text>
@@ -237,7 +239,7 @@ const Sidebar = () => {
                   p={3}
                   bg={listItemBgColor}
                   borderRadius="md"
-                  _hover={{ bg: useColorModeValue('gray.200', 'gray.700') }}
+                  _hover={{ bg: listItemHoverBgColor }}
                 >
                   <InfoIcon color="black" />
                   <Text ml={3} color={listItemTextColor}>About</Text>

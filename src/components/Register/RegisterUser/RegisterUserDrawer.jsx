@@ -18,7 +18,7 @@ import {
 } from '@chakra-ui/react';
 import { registerUser } from '../../../services/userService';
 import LoginDrawer from '../../Login/LoginPage';
-import './RegisterUserDrawer.css'; // Import CSS file
+import './RegisterUserDrawer.css'; 
 
 const RegisterUserDrawer = () => {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
@@ -45,7 +45,6 @@ const RegisterUserDrawer = () => {
 
       const response = await registerUser(userData);
 
-      // Handle success scenario
       toast({
         title: 'Registration successful.',
         description: 'You have successfully registered.',
@@ -54,9 +53,8 @@ const RegisterUserDrawer = () => {
         isClosable: true,
       });
 
-      setIsRegisterOpen(false); // Close the drawer after successful registration
+      setIsRegisterOpen(false);
     } catch (error) {
-      // Handle error scenario
       toast({
         title: 'Registration failed.',
         description: error.message,
@@ -74,7 +72,7 @@ const RegisterUserDrawer = () => {
 
   return (
     <>
-      <Button colorScheme="teal" onClick={() => setIsRegisterOpen(true)}>
+      <Button colorscheme="teal" onClick={() => setIsRegisterOpen(true)}>
         Register
       </Button>
       <Drawer isOpen={isRegisterOpen} placement="right" onClose={() => setIsRegisterOpen(false)}>
@@ -136,7 +134,7 @@ const RegisterUserDrawer = () => {
             <Button variant="outline" mr={3} onClick={() => setIsRegisterOpen(false)}>
               Cancel
             </Button>
-            <Button colorScheme="blue" onClick={handleRegister}>
+            <Button colorscheme="blue" onClick={handleRegister}>
               Register
             </Button>
           </DrawerFooter>

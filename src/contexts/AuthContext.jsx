@@ -1,15 +1,16 @@
-// contexts/AuthContext.jsx
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useToast } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../config/axiosInstance';
-import { login as loginService, logout as logoutService, refreshAccessToken } from '../services/authService';
+import { login as loginService, logout as logoutService } from '../services/authService';
 import { fetchUser } from '../services/userService';
+import PurpleSpinner from '../components/Spinner/Spinner';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true); 
   const toast = useToast();
   const navigate = useNavigate();
 
@@ -17,17 +18,10 @@ export const AuthProvider = ({ children }) => {
     try {
       const userData = await fetchUser();
       setUser(userData);
-      if (userData.role === 'ADMIN') {
-        navigate('/admin');
-      } else if (userData.role === 'PERSONAL') {
-        navigate('/user');
-      } else if (userData.role === 'BUSINESS') {
-        navigate('/businessuser');
-      } else if (userData.role === 'BUSINESS_ADMIN') {
-        navigate('/businessadmin');
-      }
+      setLoading(false);
     } catch (error) {
       console.error('Failed to fetch user', error);
+      setLoading(false); 
     }
   };
 
@@ -35,6 +29,8 @@ export const AuthProvider = ({ children }) => {
     const jwtToken = localStorage.getItem('jwtToken');
     if (jwtToken) {
       initializeUser();
+    } else {
+      setLoading(false); 
     }
   }, []);
 
@@ -53,6 +49,7 @@ export const AuthProvider = ({ children }) => {
         isClosable: true,
       });
     } catch (error) {
+      console.log(error)
       toast({
         title: 'Login failed.',
         description: 'Please check your credentials and try again.',
@@ -89,20 +86,14 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const refreshToken = async () => {
-    try {
-      const newTokens = await refreshAccessToken();
-      localStorage.setItem('jwtToken', newTokens.jwtToken);
-      localStorage.setItem('refreshToken', newTokens.refreshToken);
-      axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${newTokens.jwtToken}`;
-      initializeUser();
-    } catch (error) {
-      logout();
-    }
-  };
+  if (loading) {
+    return (
+      <PurpleSpinner/>
+    );
+  }
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, refreshToken }}>
+    <AuthContext.Provider value={{ user, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

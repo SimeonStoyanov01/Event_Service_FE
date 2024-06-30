@@ -11,9 +11,8 @@ export const login = async (email, password) => {
   }
 };
 
-export const refreshAccessToken = async () => {
+export const refreshAccessToken = async (refreshToken) => {
   try {
-    const refreshToken = localStorage.getItem('refreshToken');
     const response = await axiosInstance.post('/api/v1/auth/refresh', { refreshToken });
     localStorage.setItem('jwtToken', response.data.jwtToken);
     localStorage.setItem('refreshToken', response.data.refreshToken);
@@ -22,13 +21,13 @@ export const refreshAccessToken = async () => {
     throw error; 
   }
 };
+
 export const logout = async () => {
-    try {
-      await axiosInstance.post('/api/v1/auth/logout');
-      localStorage.removeItem('jwtToken');
-      localStorage.removeItem('refreshToken');
-    } catch (error) {
-      throw error; 
-    }
-  };
-  
+  try {
+    await axiosInstance.post('/api/v1/auth/logout');
+    localStorage.removeItem('jwtToken');
+    localStorage.removeItem('refreshToken');
+  } catch (error) {
+    throw error; 
+  }
+};

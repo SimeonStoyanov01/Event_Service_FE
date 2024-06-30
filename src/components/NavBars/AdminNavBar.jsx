@@ -1,6 +1,6 @@
+import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
+import { Box, Flex, HStack, IconButton, Spacer, useDisclosure } from '@chakra-ui/react';
 import React from 'react';
-import { Box, Flex, HStack, Link, IconButton, useDisclosure, Spacer } from '@chakra-ui/react';
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { useAuth } from '../../contexts/AuthContext';
 import MyAccountMenu from '../User/MyAccountMenu';
 

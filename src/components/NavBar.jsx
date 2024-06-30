@@ -1,15 +1,12 @@
 import React from 'react';
 import { Box, Flex, HStack, Link, IconButton, useDisclosure, Spacer } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-import { useAuth } from '../contexts/AuthContext';
 import RegisterUserDrawer from './Register/RegisterUser/RegisterUserDrawer';
-import MyAccountMenu from './User/MyAccountMenu';
 import LoginButton from './Login/LoginButton';
 import RegisterOrganizationDrawer from './Register/RegisterOrganization/RegisterOrganizationDrawer';
 
 const NavBar = ({ children }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  // const { user } = useAuth();
 
   const handleToggle = () => (isOpen ? onClose() : onOpen());
 
@@ -31,9 +28,6 @@ const NavBar = ({ children }) => {
         </HStack>
         <Spacer />
         <HStack spacing={4}>
-          {/* {user ? <MyAccountMenu /> : <LoginButton isOpen={isOpen} onOpen={onOpen} onClose={onClose} />}
-          {!user && <RegisterUserDrawer />}
-          {!user && <RegisterOrganizationDrawer />} */}
           <LoginButton isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
           <RegisterUserDrawer />
           <RegisterOrganizationDrawer />

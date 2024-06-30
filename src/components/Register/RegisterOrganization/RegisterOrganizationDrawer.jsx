@@ -111,7 +111,7 @@ const RegisterOrganizationDrawer = () => {
 
   return (
     <>
-      <Button colorScheme="teal" onClick={onOpen}>
+      <Button colorscheme="teal" onClick={onOpen}>
         Register Organization
       </Button>
       <Drawer isOpen={isOpen} placement="right" onClose={handleClose} size="md">
@@ -212,12 +212,12 @@ const RegisterOrganizationDrawer = () => {
                 <Button variant="outline" onClick={handleBack}>
                   Back
                 </Button>
-                <Button colorScheme="blue" onClick={handleRegister}>
+                <Button colorscheme="blue" onClick={handleRegister}>
                   Register
                 </Button>
               </>
             ) : (
-              <Button colorScheme="blue" onClick={handleNext}>
+              <Button colorscheme="blue" onClick={handleNext}>
                 Next
               </Button>
             )}

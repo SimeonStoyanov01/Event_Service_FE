@@ -1,19 +1,18 @@
-/* LoginDrawer.css */
 
 .chakra-heading {
-    color: black !important; /* Set the color to black */
+    color: black !important; 
   }
   
   .chakra-form__label {
-    color: black !important; /* Set the color to black */
+    color: black !important;
   }
   
   .chakra-input {
-    color: black !important; /* Ensure the input text is black */
+    color: black !important; 
   }
   
   .chakra-input::placeholder {
-    color: gray !important; /* Ensure placeholder text is gray */
+    color: gray !important; 
   }
   .chakra-modal__close-btn .chakra-icon path {
     fill: rgb(101, 15, 193) !important;

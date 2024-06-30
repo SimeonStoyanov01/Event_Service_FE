@@ -84,7 +84,7 @@ const MyAccountMenu = () => {
 
   return (
     <Menu>
-      <MenuButton as={Button} colorScheme="pink">
+      <MenuButton as={Button} colorscheme="pink">
         Profile
       </MenuButton>
       <MenuList>

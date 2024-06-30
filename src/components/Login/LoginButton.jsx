@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@chakra-ui/react';
-import LoginDrawer from './LoginPage';// Adjust the import path as per your file structure
+import LoginDrawer from './LoginPage';
 
 const LoginButton = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -10,7 +10,7 @@ const LoginButton = () => {
 
   return (
     <>
-      <Button colorScheme="teal" onClick={onOpen}>
+      <Button colorscheme="teal" onClick={onOpen}>
         Login
       </Button>
       <LoginDrawer isOpen={isOpen} onClose={onClose} />

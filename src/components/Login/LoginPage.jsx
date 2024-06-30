@@ -1,4 +1,3 @@
-// components/Login/LoginDrawer.jsx
 import React, { useState } from 'react';
 import {
   Drawer,
@@ -19,7 +18,7 @@ import {
   Heading,
 } from '@chakra-ui/react';
 import { useAuth } from '../../contexts/AuthContext';
-import './LoginPage.css'; // Import the CSS file
+import './LoginPage.css';
 
 const LoginDrawer = ({ isOpen, onClose }) => {
   const firstField = React.useRef();

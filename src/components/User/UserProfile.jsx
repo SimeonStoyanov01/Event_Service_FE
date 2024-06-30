@@ -19,32 +19,32 @@ const UserProfile = () => {
   }
 
   return (
-    <Box p={5} bg={'purple.600'} shadow="md" borderWidth="1px" borderRadius="md">
-      <Heading mb={4} size="md" color="white">User Profile</Heading>
+    <Box p={5} bg="white" shadow="md" borderWidth="1px" borderRadius="md">
+      <Heading mb={4} size="md" color="black">User Profile</Heading>
       <Stack spacing={3}>
         <Box>
-          <Text fontWeight="bold" color="white">Username:</Text>
-          <Text color="white">{user.username}</Text>
+          <Text fontWeight="bold" color="black">Username:</Text>
+          <Text color="black">{user.username}</Text>
         </Box>
         <Box>
-          <Text fontWeight="bold" color="white">Email:</Text>
-          <Text color="white">{user.email}</Text>
+          <Text fontWeight="bold" color="black">Email:</Text>
+          <Text color="black">{user.email}</Text>
         </Box>
         <Box>
-          <Text fontWeight="bold" color="white">First Name:</Text>
-          <Text color="white">{user.firstName}</Text>
+          <Text fontWeight="bold" color="black">First Name:</Text>
+          <Text color="black">{user.firstName}</Text>
         </Box>
         <Box>
-          <Text fontWeight="bold" color="white">Last Name:</Text>
-          <Text color="white">{user.lastName}</Text>
+          <Text fontWeight="bold" color="black">Last Name:</Text>
+          <Text color="black">{user.lastName}</Text>
         </Box>
         <Box>
-          <Text fontWeight="bold" color="white">Phone Number:</Text>
-          <Text color="white">{user.phoneNumber}</Text>
+          <Text fontWeight="bold" color="black">Phone Number:</Text>
+          <Text color="black">{user.phoneNumber}</Text>
         </Box>
         <Box>
-          <Text fontWeight="bold" color="white">Role:</Text>
-          <Text color="white">{user.role}</Text>
+          <Text fontWeight="bold" color="black">Role:</Text>
+          <Text color="black">{user.role}</Text>
         </Box>
       </Stack>
     </Box>

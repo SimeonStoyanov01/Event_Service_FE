@@ -4,7 +4,7 @@ import NavBar from '../NavBars/AdminNavBar';
 import { NavLink, Outlet } from 'react-router-dom';
 import Sidebar from '../Sidebar/SideBar';
 
-const BusinessAdminLayout = ({ children }) => {
+const BusinessAdminLayout = () => {
   const { colorMode } = useColorMode();
 
   return (
@@ -15,9 +15,9 @@ const BusinessAdminLayout = ({ children }) => {
                         "nav main"`}
         gridTemplateRows={'auto 1fr'}
         gridTemplateColumns={'250px 1fr'}
-        minHeight="100vh"  // Ensure the grid takes full height of the viewport
-        width="100vw"       // Ensure the grid takes full width of the viewport
-        gap={1}             // Adjust gap between grid items as needed
+        minHeight="100vh"  
+        width="100vw"      
+        gap={1}            
       >
         <GridItem area={'header'} bg="blue.300">
           <NavBar>

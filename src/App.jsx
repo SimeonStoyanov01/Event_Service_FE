@@ -4,41 +4,46 @@ import { ChakraProvider } from '@chakra-ui/react';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import Layout from './components/Layout';
 import theme from './theme';
-import PageableGrid from './components/BusinessEvents/PageableGrid';
+import PageableGrid from './components/BusinessEvents/BusinessEventsGrid/PageableGrid';
 import { businessUserRoutes } from './routes/businessUserRoutes';
 import { businessAdminRoutes } from './routes/businessAdminRoutes';
 import { userRoutes } from './routes/userRoutes';
 import { adminRoutes } from './routes/adminRoutes';
-
-const RoleBasedRoutes = () => {
-  const { user } = useAuth();
-
-  if (!user) {
-    return <Navigate to="/" />;
-  }
-
-  return (
-    <Routes>
-      {user.role === 'ADMIN' && adminRoutes()}
-      {user.role === 'PERSONAL' && userRoutes()}
-      {user.role === 'BUSINESS_ADMIN' && businessAdminRoutes()}
-      {user.role === 'BUSINESS' && businessUserRoutes()}
-      <Route path="*" element={<Navigate to="/" />} />
-    </Routes>
-  );
-};
+import EventDetail from './components/BusinessEvents/BusinessEventsGrid/BusinessEventDetails';
+import AnswerInvitation from './components/InvitationAnswer/InvitationAnswer';
 
 const App = () => {
   return (
     <ChakraProvider theme={theme}>
       <AuthProvider>
-          <Routes>
-            <Route path="/" element={<Layout />} />
-            <Route path="/events" element={<Layout><PageableGrid /></Layout>} />
-            <Route path="*" element={<RoleBasedRoutes />} />
-          </Routes>
+          <AppRoutes />
       </AuthProvider>
     </ChakraProvider>
+  );
+};
+
+const AppRoutes = () => {
+  const { user } = useAuth();
+
+  return (
+    <Routes>
+      {!user && (
+        <Route path="/" element={<Layout />}>
+          <Route path="events" element={<PageableGrid />} />
+          <Route path="events/:eventId" element={<EventDetail />} />
+          <Route path="answer/:invitationId" element={<AnswerInvitation />} />
+        </Route>
+      )}
+      {user && (
+        <>
+          {user.role === 'ADMIN' && adminRoutes()}
+          {user.role === 'PERSONAL' && userRoutes()}
+          {user.role === 'BUSINESS_ADMIN' && businessAdminRoutes()}
+          {user.role === 'BUSINESS' && businessUserRoutes()}
+        </>
+      )}
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
   );
 };
 

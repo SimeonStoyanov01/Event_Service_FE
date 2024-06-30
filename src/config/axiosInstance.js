@@ -2,7 +2,7 @@ import axios from 'axios';
 import { refreshAccessToken } from '../services/authService';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:8020', 
+  baseURL: 'http://localhost:8020',
   headers: {
     'Content-Type': 'application/json',
   },
@@ -16,9 +16,7 @@ axiosInstance.interceptors.request.use(
     }
     return config;
   },
-  (error) => {
-    return Promise.reject(error);
-  }
+  (error) => Promise.reject(error)
 );
 
 axiosInstance.interceptors.response.use(
@@ -28,14 +26,16 @@ axiosInstance.interceptors.response.use(
     if (error.response.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
       try {
-        const newTokens = await refreshAccessToken(); 
-        localStorage.setItem('jwtToken', newTokens.jwtToken);
-        localStorage.setItem('refreshToken', newTokens.refreshToken);
-        axios.defaults.headers.common['Authorization'] = `Bearer ${newTokens.jwtToken}`;
-        originalRequest.headers['Authorization'] = `Bearer ${newTokens.jwtToken}`;
+        const refreshToken = localStorage.getItem('refreshToken');
+        const response = await refreshAccessToken(refreshToken);
+        localStorage.setItem('jwtToken', response.jwtToken);
+        localStorage.setItem('refreshToken', response.refreshToken);
+        axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${response.jwtToken}`;
+        originalRequest.headers['Authorization'] = `Bearer ${response.jwtToken}`;
         return axiosInstance(originalRequest);
-      } catch (refreshError) {
-        return Promise.reject(refreshError);
+      } catch (err) {
+        console.error('Token refresh failed', err);
+        return Promise.reject(error);
       }
     }
     return Promise.reject(error);
