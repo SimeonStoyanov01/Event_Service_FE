@@ -37,6 +37,24 @@ const PageableGrid = () => {
           Book Now
         </Button>
       );
+    } else if (user?.role === 'ADMIN') {
+      return (
+        <Button as={NavLink} to={`/admin/events/${event.eventId}`} mt={4} colorScheme="blue">
+          Book Now
+        </Button>
+      );
+    } else if (user?.role === 'BUSINESS_ADMIN') {
+      return (
+        <Button as={NavLink} to={`/businessadmin/events/${event.eventId}`} mt={4} colorScheme="blue">
+          Book Now
+        </Button>
+      );
+    } else if (user?.role === 'BUSINESS') {
+      return (
+        <Button as={NavLink} to={`/businessuser/events/${event.eventId}`} mt={4} colorScheme="blue">
+          Book Now
+        </Button>
+      );
     } else {
       return (
         <Button as={NavLink} to={`/events/${event.eventId}`} mt={4} colorscheme="blue">
@@ -117,7 +135,7 @@ const PageableGrid = () => {
               ))}
             </SimpleGrid>
             <Flex justifyContent="flex-end" mt={4} mb={4} alignItems="center" width="100%">
-              <Button variant="outline"onClick={handlePrevPage} disabled={currentPage === 1} colorScheme="purple">
+              <Button variant="outline" onClick={handlePrevPage} disabled={currentPage === 1} colorScheme="purple">
                 <ArrowLeftIcon />
               </Button>
               <Button variant="outline" onClick={handleNextPage} disabled={currentPage === totalPages} colorScheme="purple" ml={2}>

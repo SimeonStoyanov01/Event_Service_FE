@@ -9,7 +9,7 @@ import {
   useToast,
   Heading,
 } from '@chakra-ui/react';
-import { createBusinessEvent } from '../../services/businessEventService';
+import { createBusinessEvent } from '../../../services/businessEventService';
 
 const CreateEventForm = () => {
   const toast = useToast();
@@ -32,7 +32,6 @@ const CreateEventForm = () => {
     try {
       setLoading(true);
       const response = await createBusinessEvent(eventData);
-      // Handle success
       toast({
         title: 'Event created successfully',
         status: 'success',

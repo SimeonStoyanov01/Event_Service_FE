@@ -14,9 +14,7 @@ const OrganizationEventCarousel = ({ organizationId, includeSuspended }) => {
     const fetchEvents = async () => {
       try {
         const eventsData = await getAllEventsByOrganization(organizationId, includeSuspended);
-        // Filter only active events
         const activeEvents = eventsData.eventModels.filter(event => event.status === 'ACTIVE');
-        // Limit to first 5 events
         const eventsToShow = activeEvents.slice(0, 5);
         setEvents(eventsToShow);
       } catch (error) {

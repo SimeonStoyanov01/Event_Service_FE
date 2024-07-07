@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { ArrowLeftIcon, ArrowRightIcon } from '@chakra-ui/icons';
 import PersonalEventCard from './PersonalEventCard';
 import { Button, Flex } from '@chakra-ui/react';
-import { getMyPersonalEvents } from '../../../services/personalEventService'; // Import getMyPersonalEvents service
-
+import { getMyPersonalEvents } from '../../../services/personalEventService'; 
 const PersonalEventsList = () => {
   const [events, setEvents] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const eventsPerPage = 5; // Adjust itemsPerPage as needed
+  const eventsPerPage = 5; 
 
   useEffect(() => {
     const fetchEvents = async () => {

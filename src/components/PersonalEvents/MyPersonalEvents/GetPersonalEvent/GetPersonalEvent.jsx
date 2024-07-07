@@ -6,7 +6,7 @@ import EventDetails from './PersonalEventDetails';
 import MenuItems from './PersonalEventMenuItems';
 import GuestList from './PersonalEventGuests';
 
-const PersonalEventDetails = () => {
+const GetPersonalEvent = () => {
   const [eventDetails, setEventDetails] = useState(null);
   const { personalEventId } = useParams();
 
@@ -40,4 +40,4 @@ const PersonalEventDetails = () => {
   );
 };
 
-export default PersonalEventDetails;
+export default GetPersonalEvent;

@@ -27,7 +27,7 @@ import {
 import EventDetailsForm from './PersonalEventDetailsForm';
 
 const steps = [
-  { title: 'Step 1: Event Details', description: 'Provide event information' },
+  { title: 'Step 1: Event', description: 'Еvent information' },
   { title: 'Step 2: Add Menu', description: 'Select food and drinks' },
   { title: 'Step 3: Invite Guests', description: 'Choose people to invite' },
 ];
@@ -141,7 +141,7 @@ const CreatePersonalEvent = () => {
                 />
               </StepIndicator>
               <Box flexShrink={0}>
-                <StepTitle sx={{ color: 'purple.600', fontWeight: 'bold' }}>{step.title}</StepTitle>
+                <StepTitle sx={{ color: 'purple.600' }}>{step.title}</StepTitle>
                 <StepDescription>{step.description}</StepDescription>
               </Box>
               <StepSeparator />

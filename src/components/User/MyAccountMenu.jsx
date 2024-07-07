@@ -19,7 +19,7 @@ const MyAccountMenu = () => {
 
   const handleLogout = async () => {
     await logout();
-  
+
   };
 
   const renderMenuItems = () => {
@@ -44,7 +44,7 @@ const MyAccountMenu = () => {
             <MenuItem as={NavLink} to="/admin/myaccount" className="custom-menu-item">
               My Account
             </MenuItem>
-            <MenuItem as={NavLink} to="/admin/myreports" className="custom-menu-item">
+            <MenuItem as={NavLink} to="/admin/reports" className="custom-menu-item">
               My Reports
             </MenuItem>
           </>
@@ -58,8 +58,8 @@ const MyAccountMenu = () => {
             <MenuItem as={NavLink} to="/businessadmin/myearnings" className="custom-menu-item">
               My Earnings
             </MenuItem>
-            <MenuItem as={NavLink} to="/businessadmin/myevents" className="custom-menu-item">
-              My Events
+            <MenuItem as={NavLink} to="/businessadmin/myorganization" className="custom-menu-item">
+              My organization
             </MenuItem>
           </>
         );
@@ -72,8 +72,8 @@ const MyAccountMenu = () => {
             <MenuItem as={NavLink} to="/businessuser/myearnings" className="custom-menu-item">
               My Earnings
             </MenuItem>
-            <MenuItem as={NavLink} to="/businessuser/myevents" className="custom-menu-item">
-              My Events
+            <MenuItem as={NavLink} to="/businessuser/myorganization" className="custom-menu-item">
+              My Organization
             </MenuItem>
           </>
         );
@@ -90,11 +90,6 @@ const MyAccountMenu = () => {
       <MenuList>
         <MenuGroup title="Profile" className="custom-menu-item">
           {renderMenuItems()}
-        </MenuGroup>
-        <MenuDivider />
-        <MenuGroup title="Help" className="custom-menu-item">
-          <MenuItem className="custom-menu-item">Docs</MenuItem>
-          <MenuItem className="custom-menu-item">FAQ</MenuItem>
         </MenuGroup>
         <MenuDivider />
         <MenuItem className="custom-menu-item" onClick={handleLogout}>

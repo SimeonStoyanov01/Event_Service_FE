@@ -8,14 +8,15 @@ import MySubscriptions from '../components/Subscriptions/MySubscriptions';
 import MyReservations from '../components/Reservation/MyReservations';
 import CreatePersonalEvent from '../components/PersonalEvents/CreatePersonalEvent/CreatePersonalEvent';
 import PersonalEventList from '../components/PersonalEvents/MyPersonalEvents/PersonalEventList';
-import PersonalEventDetails from '../components/PersonalEvents/MyPersonalEvents/PersonalEventDetails/GetPersonalEvent';
+import GetPersonalEvent from '../components/PersonalEvents/MyPersonalEvents/GetPersonalEvent/GetPersonalEvent';
 import CreateReport from '../components/Reports/CreateReport';
+import HomeScreen from '../components/Homescreen/Homescreen';
 
 export function userRoutes() {
   return (
     <>
       <Route path="/user" element={<UserLayout />}>
-        <Route index element={<div>User Home</div>} />
+        <Route index element={<HomeScreen/>} />
         <Route path="events" element={<PageableGrid />} />
         <Route path="events/:eventId" element={<EventDetail />} />
         <Route path="myaccount" element={<UserProfile />} />
@@ -23,8 +24,8 @@ export function userRoutes() {
         <Route path="myreservations" element={<MyReservations />} />
         <Route path="createpersonalevent" element={<CreatePersonalEvent />} />
         <Route path="mypersonalevents" element={<PersonalEventList />} />
-        <Route path="mypersonalevents/:personalEventId" element={<PersonalEventDetails />} />
-        <Route path="report" element={<CreateReport isOpenedFromEventButton={false}/>} />
+        <Route path="mypersonalevents/:personalEventId" element={<GetPersonalEvent />} />
+        <Route path="report" element={<CreateReport/>} />
       </Route>
       <Route path="*" element={<Navigate to="/user" />} />
     </>

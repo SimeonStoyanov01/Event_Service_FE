@@ -19,8 +19,11 @@ const EventDetails = ({ eventDetails, setEventDetails }) => {
 
   const handleSaveChanges = async () => {
     try {
-      await updatePersonalEvent(editedDetails);
-      setEventDetails(editedDetails);
+      // Ensure the date is in ISO format before sending to the update function
+      const updatedDetails = { ...editedDetails, eventDateTime: new Date(editedDetails.eventDateTime).toISOString() };
+      
+      await updatePersonalEvent(updatedDetails);
+      setEventDetails(updatedDetails);
       setIsEditing(false);
       toast({
         title: 'Success',
@@ -43,6 +46,13 @@ const EventDetails = ({ eventDetails, setEventDetails }) => {
 
   const handleChange = (field, value) => {
     setEditedDetails({ ...editedDetails, [field]: value });
+  };
+
+  const formatLocalDateTime = (isoString) => {
+    const localDate = new Date(isoString);
+    const tzOffset = localDate.getTimezoneOffset() * 60000;
+    const localISOTime = new Date(localDate - tzOffset).toISOString().slice(0, 16);
+    return localISOTime;
   };
 
   return (
@@ -112,7 +122,7 @@ const EventDetails = ({ eventDetails, setEventDetails }) => {
               {isEditing ? (
                 <Input
                   type="datetime-local"
-                  value={new Date(editedDetails.eventDateTime).toISOString().slice(0, 16)}
+                  value={formatLocalDateTime(editedDetails.eventDateTime)}
                   onChange={(e) => handleChange('eventDateTime', e.target.value)}
                   borderColor="purple.500"
                   variant="outline"

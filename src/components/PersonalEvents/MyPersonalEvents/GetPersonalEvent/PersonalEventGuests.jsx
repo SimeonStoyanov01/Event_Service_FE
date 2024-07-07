@@ -6,7 +6,7 @@ import {
     ModalOverlay, ModalContent, ModalHeader, ModalFooter,
     ModalBody, ModalCloseButton, useDisclosure, useToast,
 } from '@chakra-ui/react';
-import { getMyInvitations, createInvitation } from '../../../../services/invitationService'; // Adjust the import path as needed
+import { getMyInvitations, createInvitation } from '../../../../services/invitationService'; 
 import {AddIcon } from '@chakra-ui/icons';
 const GuestList = ({ personalEventId }) => {
     const [invitations, setInvitations] = useState([]);

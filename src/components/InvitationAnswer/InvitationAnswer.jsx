@@ -95,11 +95,13 @@ const AnswerInvitation = () => {
 
   return (
     <Flex align="center" justify="center" height="100%" width="100%">
-      <Box p={8} maxW="4xl" borderWidth={1} borderRadius="md" boxShadow="lg" width="100%">
+      <Box p={8} maxW="4xl" borderWidth={1}  backgroundColor="white" borderRadius="md"  boxShadow="lg" width="100%">
         <Heading mb={4} textAlign="center">Answer Invitation</Heading>
         <Text mb={4} color="black" textAlign="center">You have been invited to {invitation.personalEventName}.</Text>
         
         {menuItems.length > 0 && (
+          <>
+           <Text mb={4} color="black" textAlign="center">Menu items</Text>
           <Select 
             value={selectedMenuItem}
             onChange={handleMenuChange}
@@ -113,6 +115,7 @@ const AnswerInvitation = () => {
               </option>
             ))}
           </Select>
+          </>
         )}
         
         <Flex justify="center" mt={4}>

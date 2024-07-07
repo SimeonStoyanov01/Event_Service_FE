@@ -1,0 +1,44 @@
+.carousel-item {
+    position: relative;
+    padding: 0 16px; /* Adjust padding as needed */
+  }
+  
+  .carousel-image {
+    width: 80%;
+    height: 400px; /* Adjust height of images */
+    width: 600px;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .carousel-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    color: white;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease-in-out;
+    padding: 20px; /* Adjust padding as needed */
+    max-width: calc(100% - 40px); /* Limit overlay width */
+    border-radius: 8px;
+    box-sizing: border-box;
+  }
+  
+  .carousel-item:hover .carousel-overlay {
+    opacity: 1; /* Show overlay on hover */
+  }
+  
+  .slick-prev,
+  .slick-next {
+    z-index: 1; /* Ensure arrows appear above carousel items */
+    color: rgba(0, 0, 0, 0.7); /* Semi-transparent black color */
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .slick-prev:hover,
+  .slick-next:hover {
+    color: rgba(0, 0, 0, 0.9); /* Darker color on hover */
+  }
+  

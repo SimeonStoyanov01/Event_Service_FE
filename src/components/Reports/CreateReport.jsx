@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Box, Button, Flex, Heading, Input, Textarea, useToast } from '@chakra-ui/react';
 import { createReport } from '../../services/reportService';
 
-const CreateReport = ({ eventId }) => {
+const CreateReport = () => {
   const toast = useToast();
   const [description, setDescription] = useState('');
   const [subject, setSubject] = useState('');
