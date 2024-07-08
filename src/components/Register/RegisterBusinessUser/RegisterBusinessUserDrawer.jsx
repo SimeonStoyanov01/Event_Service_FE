@@ -36,7 +36,7 @@ const RegisterBusinessUserDrawer = ({ isOpen, onClose, onEmployeeRegistered, org
           firstName,
           lastName,
           phoneNumber,
-          organizationId, // Assuming you need to pass organizationId for registration
+          organizationId,
         };
   
         const response = await registerBusinessUser(userData);
@@ -49,7 +49,6 @@ const RegisterBusinessUserDrawer = ({ isOpen, onClose, onEmployeeRegistered, org
           isClosable: true,
         });
   
-        // Reset input fields after successful registration
         setEmail('');
         setPassword('');
         setConfirmPassword('');
@@ -57,7 +56,6 @@ const RegisterBusinessUserDrawer = ({ isOpen, onClose, onEmployeeRegistered, org
         setLastName('');
         setPhoneNumber('');
   
-        // Callback to handle post-registration actions (like closing the drawer and refreshing data)
         if (typeof onEmployeeRegistered === 'function') {
           onEmployeeRegistered();
         }

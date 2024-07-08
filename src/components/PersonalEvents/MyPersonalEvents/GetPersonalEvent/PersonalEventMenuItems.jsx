@@ -42,14 +42,13 @@ const MenuItems = ({ personalEventId }) => {
   const handleCreateMenu = async (menuName) => {
     try {
       const newMenuItem = await createMenu({ menuName, personalEventId });
-      console.log(newMenuItem); // Verify the structure of newMenuItem in the console
+      console.log(newMenuItem); 
   
-      // Assuming newMenuItem is structured as { menuId, menuName, personalEventId }
-      setMenuItems((prevItems) => [...prevItems, newMenuItem.menuModel]); // Update state immediately with the newly created item
+      setMenuItems((prevItems) => [...prevItems, newMenuItem.menuModel]); 
   
       onClose();
       showToast('Menu item created successfully', 'success');
-      setNewMenu({ menuName: '' }); // Clear the input after successful creation
+      setNewMenu({ menuName: '' }); 
     } catch (error) {
       console.error('Error creating menu item:', error);
       showToast('Failed to create menu item', 'error');
@@ -60,7 +59,7 @@ const MenuItems = ({ personalEventId }) => {
     toast({
       title: message,
       status: status,
-      duration: 3000, // Toast message duration
+      duration: 3000, 
       isClosable: true,
     });
   };

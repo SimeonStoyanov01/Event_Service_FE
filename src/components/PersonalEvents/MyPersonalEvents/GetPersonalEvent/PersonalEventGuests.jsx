@@ -1,4 +1,3 @@
-// components/GuestList.jsx
 import React, { useState, useEffect } from 'react';
 import {
     Box, Table, Thead, Tbody, Tr, Th, Td, Spinner, Center,

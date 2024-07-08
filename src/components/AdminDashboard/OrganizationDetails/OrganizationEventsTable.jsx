@@ -4,7 +4,7 @@ import {
   AlertDialogContent, AlertDialogHeader, AlertDialogBody, AlertDialogFooter,
   useToast
 } from '@chakra-ui/react';
-import { suspendEvent, deleteEvent } from '../../../services/businessEventService'; // Adjust import as per your project setup
+import { suspendEvent, deleteEvent } from '../../../services/businessEventService'; 
 
 const OrganizationEventsTable = ({ events, setEvents }) => {
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
@@ -44,7 +44,6 @@ const OrganizationEventsTable = ({ events, setEvents }) => {
         isClosable: true,
       });
 
-      // Update events list after suspension
       const updatedEvents = events.map((event) =>
         event.eventId === selectedEvent.eventId ? { ...event, status: 'SUSPENDED' } : event
       );
@@ -75,7 +74,6 @@ const OrganizationEventsTable = ({ events, setEvents }) => {
         isClosable: true,
       });
 
-      // Update events list after deletion
       const updatedEvents = events.filter((event) => event.eventId !== selectedEvent.eventId);
       setEvents(updatedEvents);
       handleCloseDeleteModal();

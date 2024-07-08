@@ -1,11 +1,11 @@
 .carousel-item {
     position: relative;
-    padding: 0 16px; /* Adjust padding as needed */
+    padding: 0 16px;
   }
   
   .carousel-image {
     width: 80%;
-    height: 400px; /* Adjust height of images */
+    height: 400px;
     width: 600px;
     border-radius: 8px;
     transition: transform 0.3s ease-in-out;
@@ -16,29 +16,29 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    background-color: rgba(0, 0, 0, 0.5); 
     color: white;
-    opacity: 0; /* Hidden by default */
+    opacity: 0; 
     transition: opacity 0.3s ease-in-out;
-    padding: 20px; /* Adjust padding as needed */
-    max-width: calc(100% - 40px); /* Limit overlay width */
+    padding: 20px; 
+    max-width: calc(100% - 40px);
     border-radius: 8px;
     box-sizing: border-box;
   }
   
   .carousel-item:hover .carousel-overlay {
-    opacity: 1; /* Show overlay on hover */
+    opacity: 1; 
   }
   
   .slick-prev,
   .slick-next {
-    z-index: 1; /* Ensure arrows appear above carousel items */
-    color: rgba(0, 0, 0, 0.7); /* Semi-transparent black color */
+    z-index: 1;
+    color: rgba(0, 0, 0, 0.7); 
     transition: color 0.3s ease-in-out;
   }
   
   .slick-prev:hover,
   .slick-next:hover {
-    color: rgba(0, 0, 0, 0.9); /* Darker color on hover */
+    color: rgba(0, 0, 0, 0.9); 
   }
   

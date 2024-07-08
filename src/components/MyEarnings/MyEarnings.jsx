@@ -1,14 +1,13 @@
-// MyEarnings.js
 
 import React, { useState } from 'react';
 import { Box, Text, Button } from '@chakra-ui/react';
-import { useAuth } from '../../contexts/AuthContext'; // Adjust path as per your project structure
-import EarningsPerEvent from './EarningsPerEvent'; // Adjust path as per your project structure
-import EarningsChart from './EarningsChart'; // Adjust path as per your project structure
-import AccumulatedEarnings from './AccumulatedEarnings'; // Adjust path as per your project structure
+import { useAuth } from '../../contexts/AuthContext'; 
+import EarningsPerEvent from './EarningsPerEvent';
+import EarningsChart from './EarningsChart'; 
+import AccumulatedEarnings from './AccumulatedEarnings'; 
 
 const MyEarnings = () => {
-  const { user } = useAuth(); // Assuming useAuth provides user information including organizationId
+  const { user } = useAuth(); 
   const [showEarnings, setShowEarnings] = useState(true);
   const [showChart, setShowChart] = useState(false);
   const [showAccumulatedEarnings, setShowAccumulatedEarnings] = useState(false);

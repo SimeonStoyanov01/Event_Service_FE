@@ -78,7 +78,7 @@ const PageableGrid = () => {
 
   return (
     <Center minHeight="80vh" mt={4} flexDirection="column">
-      <Box width="100%" maxWidth="1200px"> {/* Parent container to ensure the grid and pagination align properly */}
+      <Box width="100%" maxWidth="1200px"> 
         {events.length === 0 ? (
           <div>Loading...</div>
         ) : (

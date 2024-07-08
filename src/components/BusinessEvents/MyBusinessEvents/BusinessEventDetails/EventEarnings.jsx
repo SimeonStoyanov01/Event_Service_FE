@@ -1,9 +1,8 @@
-// EventEarnings.js
 
 import React, { useState, useEffect } from 'react';
 import { Box, Text, Center, Stat, StatLabel, StatNumber, StatHelpText, StatArrow, StatGroup } from '@chakra-ui/react';
 import { getEventEarnings } from '../../../../services/businessEventService';
-import { motion } from 'framer-motion'; // Import motion from framer-motion
+import { motion } from 'framer-motion'; 
 import PurpleSpinner from '../../../Spinner/Spinner';
 
 const EventEarnings = ({ eventId }) => {

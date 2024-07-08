@@ -35,7 +35,7 @@ const GetPersonalEvent = () => {
     <Box flex="1" mr={{ base: 0, sm: 4 }} mb={{ base: 4, sm: 0 }} minWidth="200px">
       <EventDetails eventDetails={eventDetails} setEventDetails={setEventDetails} />
       <MenuItems personalEventId={personalEventId} />
-      <GuestList personalEventId={personalEventId} /> {/* Add the GuestList component here */}
+      <GuestList personalEventId={personalEventId} /> 
     </Box>
   );
 };

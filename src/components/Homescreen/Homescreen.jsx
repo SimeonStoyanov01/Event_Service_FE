@@ -5,8 +5,7 @@ import PurpleSpinner from '../Spinner/Spinner';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import { getAllEvents } from '../../services/businessEventService';
-import './Homescreen.css'; // Import your custom CSS for styling
-
+import './Homescreen.css'; 
 const HomeScreen = () => {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -15,7 +14,7 @@ const HomeScreen = () => {
     const fetchEvents = async () => {
       try {
         const eventsData = await getAllEvents(false);
-        const activeEvents = eventsData.eventModels.filter(event => event.status === 'ACTIVE').slice(0, 10); // Get the 10 most recent active events
+        const activeEvents = eventsData.eventModels.filter(event => event.status === 'ACTIVE').slice(0, 10); 
         setEvents(activeEvents);
         setLoading(false);
       } catch (error) {
@@ -47,12 +46,12 @@ const HomeScreen = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3, // Show three items at a time
+    slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 5000,
     centerMode: true,
-    centerPadding: '100px' // Adjust as needed
+    centerPadding: '100px' 
   };
 
   return (

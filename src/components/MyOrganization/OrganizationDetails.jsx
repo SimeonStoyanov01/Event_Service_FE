@@ -13,7 +13,7 @@ const OrganizationDetails = ({ organizationDetails, setOrganizationDetails, user
     const [editedDetails, setEditedDetails] = useState({ ...organizationDetails });
     const [isOpen, setIsOpen] = useState(false);
     const cancelRef = React.useRef();
-    const toast = useToast(); // Initialize useToast hook
+    const toast = useToast(); 
 
     const handleEditToggle = () => {
         setIsEditing(!isEditing);
@@ -41,11 +41,10 @@ const OrganizationDetails = ({ organizationDetails, setOrganizationDetails, user
         try {
             await deleteOrganization(organizationDetails.organizationId);
             handleSuccessToast('Organization deleted successfully.');
-            // Handle any other necessary actions after deletion
         } catch (error) {
             handleErrorToast(error);
         } finally {
-            setIsOpen(false); // Close AlertDialog after delete operation completes
+            setIsOpen(false); 
         }
     };
 
@@ -141,7 +140,6 @@ const OrganizationDetails = ({ organizationDetails, setOrganizationDetails, user
                     )}
                 </Box>
 
-                {/* AlertDialog for Delete Organization */}
                 <AlertDialog isOpen={isOpen} leastDestructiveRef={cancelRef} onClose={onClose}>
                     <AlertDialogOverlay>
                         <AlertDialogContent>

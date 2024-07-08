@@ -1,4 +1,3 @@
-// AggregatedData.js
 
 import React from 'react';
 import { Box, Stat, StatLabel, StatNumber, StatGroup, Text } from '@chakra-ui/react';

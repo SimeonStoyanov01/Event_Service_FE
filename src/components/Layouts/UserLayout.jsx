@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 import Sidebar from '../Sidebar/SideBar';
 import backgroundImage from '../../assets/SideNavPic.png'
 
-const UserLayout = ({ children }) => {
+const UserLayout = () => {
   const { colorMode } = useColorMode();
   return (
     <Box minHeight="100vh" minWidth="100vw" bg={colorMode === 'dark' ? 'gray.800' : 'gray.100'}>

@@ -19,7 +19,6 @@ const EventDetails = ({ eventDetails, setEventDetails }) => {
 
   const handleSaveChanges = async () => {
     try {
-      // Ensure the date is in ISO format before sending to the update function
       const updatedDetails = { ...editedDetails, eventDateTime: new Date(editedDetails.eventDateTime).toISOString() };
       
       await updatePersonalEvent(updatedDetails);

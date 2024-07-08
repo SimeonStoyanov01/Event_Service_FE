@@ -4,7 +4,7 @@ import NavBar from './NavBar';
 import { NavLink, Outlet } from 'react-router-dom';
 import Sidebar from './Sidebar/SideBar';
 
-const Layout = ({ children }) => {
+const Layout = () => {
   const { colorMode } = useColorMode();
 
   return (
@@ -21,8 +21,6 @@ const Layout = ({ children }) => {
       >
         <GridItem area={'header'} bg="green.300">
           <NavBar>       
-           {/* <Link href="/">Home</Link>
-           <Link href="/events">All Events</Link>      */}
            <NavLink to="/">Home</NavLink>
            <NavLink to="/events">AllEvents</NavLink>
           </NavBar>

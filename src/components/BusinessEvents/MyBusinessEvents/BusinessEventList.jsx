@@ -10,7 +10,7 @@ const BusinessEventsList = () => {
     const [events, setEvents] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [includeSuspended, setIncludeSuspended] = useState(false);
-    const eventsPerPage = 5; // Adjust itemsPerPage as needed
+    const eventsPerPage = 5; 
 
     useEffect(() => {
         const fetchEvents = async () => {

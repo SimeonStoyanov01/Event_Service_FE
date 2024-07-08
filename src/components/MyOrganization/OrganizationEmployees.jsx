@@ -34,9 +34,8 @@ const OrganizationEmployees = ({ organizationId }) => {
   };
 
   const handleEmployeeRegistered = () => {
-    // After successful registration, fetch employees again to update the table
     fetchEmployees();
-    setIsRegisterDrawerOpen(false); // Close the drawer
+    setIsRegisterDrawerOpen(false); 
   };
 
   const fetchEmployees = async () => {

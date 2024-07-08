@@ -1,4 +1,4 @@
-// AdminDashboard.jsx
+
 
 import React, { useEffect, useState } from 'react';
 import { getAllOrganizations } from '../../services/organizationService';

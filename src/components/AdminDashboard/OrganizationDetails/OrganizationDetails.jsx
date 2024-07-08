@@ -74,7 +74,6 @@ const OrganizationDetails = () => {
         duration: 5000,
         isClosable: true,
       });
-      // Optionally, you can perform additional actions upon successful deletion
     } catch (error) {
       console.error('Error deleting organization:', error);
       toast({
@@ -84,7 +83,6 @@ const OrganizationDetails = () => {
         duration: 5000,
         isClosable: true,
       });
-      // Handle error scenario
     }
   };
 
@@ -93,10 +91,9 @@ const OrganizationDetails = () => {
       const suspendData = { organizationId };
       await suspendOrganization(suspendData);
 
-      // Update organization status in local state
       setOrganization(prevOrg => ({
         ...prevOrg,
-        organizationStatus: 'SUSPENDED'  // Update with the actual new status returned from API
+        organizationStatus: 'SUSPENDED'  
       }));
 
       setIsSuspendOpen(false);
@@ -107,7 +104,6 @@ const OrganizationDetails = () => {
         duration: 5000,
         isClosable: true,
       });
-      // Optionally, you can perform additional actions upon successful suspension
     } catch (error) {
       console.error('Error suspending organization:', error);
       toast({
@@ -117,7 +113,6 @@ const OrganizationDetails = () => {
         duration: 5000,
         isClosable: true,
       });
-      // Handle error scenario
     }
   };
 

@@ -3,12 +3,12 @@ import { Input, IconButton, Flex, Box, Spacer } from '@chakra-ui/react';
 import { AddIcon, DeleteIcon } from '@chakra-ui/icons';
 
 const MenuItems = ({ onChange, items }) => {
-  const [menuItems, setMenuItems] = useState(items.map(item => ({ name: item, personalEventId: '' }))); // Initialize state with initial items as objects
+  const [menuItems, setMenuItems] = useState(items.map(item => ({ name: item, personalEventId: '' }))); 
 
   const handleAddItem = () => {
-    const updatedItems = [...menuItems, { name: '', personalEventId: '' }]; // Add an empty item object to the list
+    const updatedItems = [...menuItems, { name: '', personalEventId: '' }]; 
     setMenuItems(updatedItems);
-    onChange(updatedItems.map(item => item.name)); // Notify parent component of updated items as an array of names
+    onChange(updatedItems.map(item => item.name)); 
   };
 
   const handleRemoveItem = (index) => {
